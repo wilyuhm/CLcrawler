@@ -1,0 +1,8 @@
+- python 2.7.6
+- urllib2 vs. httlib vs. socket vs. requests libraries
+- json
+- edit distance
+
+- possibly compare to kbb price
+- compute average value 
+- incorporate matlab libraries to graph average versus particular sales
