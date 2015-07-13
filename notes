@@ -2,6 +2,7 @@
 - urllib2 vs. httlib vs. socket vs. requests libraries
 - json
 - edit distance
+- human error sucks, posts lack uniformity
 
 - possibly compare to kbb price
 - compute average value 
