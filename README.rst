@@ -9,4 +9,5 @@ My first web crawler in python. Search craigslists posts and calculate average p
 :Contact: william.keidel@gmail.com
 :Authors: Me
 :organization: No affiliation.
-:status: This is a "work in progress"
+:current status: This is a work in progress. Currently will pull from vehicle sales on Craigslist and return Year, Make, Model, price. Relies on well formatted craigslist posts.
+
