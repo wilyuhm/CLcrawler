@@ -15,3 +15,4 @@ f.close()
 
 end = time.clock()
 print 'Total elapsed time to get page: ' + str(end-start)
+
