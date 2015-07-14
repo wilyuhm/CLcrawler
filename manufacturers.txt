@@ -7,6 +7,7 @@ bentley
 bmw
 bugatti
 buick
+daewoo
 cadillac
 chevrolet
 citroen

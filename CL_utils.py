@@ -16,7 +16,7 @@ def getHTMLblocks(text, starttag, endtag):
 
 #pass in HTML object code, find the price
 #returns price
-def findVehiclePrice(text):
+def getVehiclePrice(text):
 	identifyer = '<span class="price">$'
 	price =''
 	priceindex = text.find(identifyer) + len(identifyer)
@@ -30,14 +30,23 @@ def findVehiclePrice(text):
 		price = -1
 	return int(price)
 
-
+def getVehicleName(text):
+	identifier = 'class="attrgroup"><span><b>'
+	name = ''
+	nameindex = text.find(identifier) + len(identifier)
+	if nameindex:
+		name = text[nameindex:text.find('<', nameindex)]
+	else:
+		name = 'Unrecognized name'
+	return str(name)
+ 
 #given block of html
 #return link for that page
 def getLink(HTML_block):
 	indentifyer = 'href="'
 	startindex = HTML_block.rfind(indentifyer)
 	if startindex == -1:
-		return 'NO LINK'
+		return '-1'
 	endindex = HTML_block.find('"', startindex+22)
 	return HTML_block[startindex+len(indentifyer):endindex]
 
