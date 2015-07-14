@@ -7,7 +7,7 @@ import requests
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 from CL_utils import getHTMLblocks
-from CL_utils import findVehicleandPrice
+from CL_utils import findVehiclePrice
 from CL_utils import getLink
 from CL_utils import getHTML
 
@@ -19,8 +19,21 @@ block_array = getHTMLblocks(s, '<p', '</p>') #contains html for individual posti
 
 list_of_links = []
 for block in block_array:
-	list_of_links.append("inlandempire.craigslist.org" + getLink(block))
+	linkend = getLink(block)
+	if linkend != 'NO LINK':
+		list_of_links.append("http://inlandempire.craigslist.org" + getLink(block))
 
-html = getHTML(list_of_links)
-
-
+listings = []
+numlinks = 0
+nolinks = 0
+for link in list_of_links:
+	print 'Link ' + str(numlinks) + ' of ' + str(len(list_of_links))
+	numlinks = numlinks+1
+	if link != 'NO LINK':
+		html = getHTML(link)
+		price = findVehiclePrice(html)
+		listings.append( (link, price) )
+	else:
+		nolinks = nolinks + 1
+for listing in listings:
+	print listing

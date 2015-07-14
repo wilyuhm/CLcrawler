@@ -14,41 +14,21 @@ def getHTMLblocks(text, starttag, endtag):
 	return block_array
 
 
-#pass in HTML object code, find and match vehicle to a manufacturer and find the price
-#returns a tuple (vehicle, price)
-def findVehicleandPrice(text):
-	manu_list = []
-	manufacturers = open('manufacturers.txt')	
-	manu_list = [line.rstrip('\n') for line in manufacturers]
-	manufacturers.close()
-
-	foundmake = 0
-	year = ''
-	make = ''
-	model = ''
-	price ='' 
-	prevword = text.split(' ')
-	for word in text.split(' '): #get make and model
-		if foundmake:
-			model = word.replace('</a>','')
-			break
-		for manu in manu_list:
-			if fuzz.ratio(word.lower(), manu) > 90:
-				foundmake = 1
-				make = manu
-				break
-		if foundmake==0:
-			prevword = word
-	if foundmake:
-		year = prevword.replace('class="hdrlnk">', '')
-
-	vehicle = year + ' ' + make.lower() + " " + model.lower()
-	priceindex = text.rfind('<span class="price">&#x0024;') + 28
+#pass in HTML object code, find the price
+#returns price
+def findVehiclePrice(text):
+	identifyer = '<span class="price">$'
+	price =''
+	priceindex = text.find(identifyer) + len(identifyer)
 	if priceindex:
-		price = text[priceindex:text.find('<', priceindex, priceindex+7)]
-	if len(price) > 6:
-		price = '0'
-	return (vehicle, int(price))
+		price = text[priceindex:text.find('<', priceindex)]
+	else:
+		price = -1
+	try: 
+		price = int(price)
+	except:
+		price = -1
+	return int(price)
 
 
 #given block of html
@@ -61,7 +41,8 @@ def getLink(HTML_block):
 	endindex = HTML_block.find('"', startindex+22)
 	return HTML_block[startindex+len(indentifyer):endindex]
 
+import requests
 #use requests to get HTML at URL
-def getHTML(url)
+def getHTML(url):
 	html = requests.get(url)
-	return html
+	return html.text

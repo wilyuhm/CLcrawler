@@ -12,7 +12,6 @@ r = requests.get(URL)
 f = open(FILENAME, 'w')
 f.write(r.text.encode('utf-8'))
 f.close()
-
 end = time.clock()
 print 'Total elapsed time to get page: ' + str(end-start)
 
