@@ -9,6 +9,7 @@ from CL_utils import getVehiclePrice
 from CL_utils import getVehicleName
 from CL_utils import getLink
 from CL_utils import getHTML
+from collections import defaultdict
 
 start = time.time()
 
@@ -36,8 +37,14 @@ for link in list_of_links:
 		name = getVehicleName(html).lower()
 		listings.append( (name, price, link) )
 
-for listing in listings:
-	print listing
+stats_dict = defaultdict(list) 
+for name, price, link in listings:
+	stats_dict[name].append(price)
+
+for k, v in stats_dict.items():
+	print k
+	for i in v:
+		print i 
 
 end = time.time()
-print 'Total elapsed time for 2500 results: ' + str(end-start)
+print 'Total elapsed time for results: ' + str(end-start)
