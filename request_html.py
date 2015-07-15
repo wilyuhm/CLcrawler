@@ -5,7 +5,7 @@ import time
 
 start = time.clock()
 
-URL = 'http://inlandempire.craigslist.org/search/cta'
+URL = 'http://inlandempire.craigslist.org/search/cto'
 FILENAME = 'html.txt'
 
 r = requests.get(URL)

@@ -5,5 +5,10 @@
 - human error sucks, posts lack uniformity
 
 - possibly compare to kbb price
-- compute average value 
+- compute average value
 - incorporate matlab libraries to graph average versus particular sales
+-
+-
+- This code is much faster and runs better, but misses a lot of postings because all post formats are different a- and hard to read. The other version in 'newapproach' gets way more postings and more comprehensive results, but is VERY slow. I think I'll use this version.
+
+- check other branches notes
