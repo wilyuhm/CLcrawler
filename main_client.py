@@ -33,18 +33,21 @@ for link in list_of_links:
 	numlinks = numlinks+1
 	if link != 'NO LINK':
 		html = getHTML(link)
-		price = getVehiclePrice(html)
-		name = getVehicleName(html).lower()
-		listings.append( (name, price, link) )
+		if html != '-1':
+			price = getVehiclePrice(html)
+			name = getVehicleName(html).lower()
+			listings.append( (name, price, link) )
 
 stats_dict = defaultdict(list) 
 for name, price, link in listings:
 	stats_dict[name].append(price)
 
 for k, v in stats_dict.items():
-	print k
-	for i in v:
-		print i 
+	#print k
+	if len(v) > 1:
+		print k
+		for i in v:
+			print i 
 
 end = time.time()
 print 'Total elapsed time for results: ' + str(end-start)

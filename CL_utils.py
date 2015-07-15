@@ -53,5 +53,9 @@ def getLink(HTML_block):
 import requests
 #use requests to get HTML at URL
 def getHTML(url):
-	html = requests.get(url)
+	try:
+		html = requests.get(url)
+	
+	except:
+		return '-1'
 	return html.text

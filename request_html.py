@@ -6,7 +6,7 @@ import time
 start = time.time()
 URL = 'http://inlandempire.craigslist.org/search/cto?s='
 FILENAME = 'html.txt'
-NUMRESULTS = 200
+NUMRESULTS = 1000
 
 #Craigslist allows a max of 2500 search results with 100 results per page
 listingnumber = 0
