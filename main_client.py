@@ -17,23 +17,17 @@ HTMLfile.close()
 block_array = []
 block_array = getHTMLblocks(s, '<p', '</p>') #contains html for individual postings
 
-
 listings = []
 for block in block_array:
 	listings.append(findVehicleandPrice(block))
 
 stats_dict = defaultdict(list)
-for listing in listings:
+for listing in listings: #listing contains (make+model, price, link)
 	if listing[0] != ' ':
 		stats_dict[listing[0]].append( (listing[1], listing[2]) )
-#print dict
-#for make, tup in stats_dict.items():
-#	print make
-#	for price, link in tup:
-#		print str(price) + " " + link 
 
 #calculate average
-for make, tups in stats_dict.items():
+for make, tups in stats_dict.items(): #tups contains (price, link)
 	low_price=(tups[0][0], tups[0][1])
 	avg_price=0
 	index=0
