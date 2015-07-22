@@ -1,75 +1,48 @@
 In this project, the student will learn about crawling the internet and retrieving information and
-
 will then implement a web scraper to fetch information related to the sale of vehicles on
-
-Craigslist.org or a similar site. This will involve implementing an algorithm for retrieving the
-
+Craigslist.org. This will involve implementing an algorithm for retrieving the
 correct information, parsing the correct significant statistics, sorting this information into easily
-
 readable output, and finding outliers within different groups of similar vehicles. The
-
 application should, as an end product, show a good potential vehicle for purchasing and
-
 reselling for a profit.
 
 The student will perform the following steps to complete the project.
 
   1. Learn about information retrieval: Having no prior experience with web crawling and
-  
-  information retrieval, the student will have to pick a language or languages that best suit
-  
-  the scope of the project and learn how to use the language in the appropriate manner.
+     information retrieval, the student will have to pick a language or languages that best suit
+     the scope of the project and learn how to use the language in the appropriate manner.
 
   2. Retrieval/filtering: the student must determine the bounds of the retrieval and use his
-  
-  program to fetch the correct information on all vehicles. Results must filter out
-  
-  potential bad results such as $0 sale price or miscategorized postings.
+     program to fetch the correct information on all vehicles. Results must filter out
+     potential bad results such as $0 sale price or miscategorized postings.
   
   3. Sorting: after fetching statistics on individual sales of vehicles, the sales should be
-  
-  sorted according to vehicle and price.
+     sorted according to vehicle and price.
 
   4. Selection: Determine an appropriate threshold for finding outliers in price and store the
-  
-  pertinent information on that particular outlier.
+     pertinent information on that particular outlier.
 
   5. Display/Menu: Provide an easily maneuverable menu system to provide the user with
-  
-  options such as: search for particular make/model, find best value, etc.
+     options such as: search for particular make/model, find best value, etc.
   
   6. Report/Documentation: Record significant results/findings and provide detailed
-  
-  documentation in regards to implementation and intricacies of the project.
+     documentation in regards to implementation and intricacies of the project.
 
 Project Plan (120 hours)
 
-  1. Preliminary Research (20 hours)
-
+  1. Preliminary Research (30 hours)
     • Research different methods of crawling different webpages, especially those without a
-    
     • Find libraries/tools that can best be used to best aid in the implementation of the
-    
     • Determine the algorithm and bounds for the vehicle information
-    
     • Determine the appropriate threshold for picking a good vehicle
 
   2. Implementation (80 hours)
-  
     • Write the menu system
-    
     • Write the algorithm for grabbing vehicle sale information
-    
     • Find valuable sales and present them in a simple way
     
   3. Documentation (10 hours)
-
     • Provide a detailed report on significant decisions made
-    
     • Provide open source code in a github repository
-    
     • Detail improvements that could be made and any incomplete functionality
     
-    provided API
-    
-    project
