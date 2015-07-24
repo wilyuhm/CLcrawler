@@ -9,6 +9,7 @@ bugatti
 buick
 cadillac
 chevrolet
+chevy
 citroen
 chrysler
 dodge

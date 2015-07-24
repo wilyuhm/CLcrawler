@@ -4,6 +4,7 @@
 #ask user for page adress and `pull HTML webpage for parsing
 
 import sys
+sys.dont_write_bytecode=True
 from collections import defaultdict
 from CL_utils import getHTMLblocks
 from CL_utils import getLink
@@ -19,7 +20,9 @@ block_array = getHTMLblocks(s, '<p', '</p>') #contains html for individual posti
 
 listings = []
 for block in block_array:
-	listings.append(findVehicleandPrice(block))
+	vehicle, price, link = findVehicleandPrice(block)
+	if price > 0: #people suck and list at $0
+		listings.append( (vehicle, price, link) )
 
 stats_dict = defaultdict(list)
 for listing in listings: #listing contains (year+make+model, price, link)
@@ -27,8 +30,8 @@ for listing in listings: #listing contains (year+make+model, price, link)
 		stats_dict[listing[0]].append( (listing[1], listing[2]) )
 
 #calculate average
-for make, tups in stats_dict.items(): #tups contains (price, link)
-	low_price=(tups[0][0], tups[0][1])
+for make, tups in stats_dict.items(): #tups contains list of tuples of (price, link) for particular type
+	low_price=(tups[0][0], tups[0][1]) #lowest price for particular year, make, model
 	avg_price=0
 	index=0
 	for price, link in tups:
@@ -38,6 +41,10 @@ for make, tups in stats_dict.items(): #tups contains (price, link)
 		index+=1
 	else:
 		avg_price /= (index)
-	print make
-	print 'Average Price: ' + str(avg_price)
-	print 'Lowest Price: ' + str(low_price[0]) + ' at ' + str(low_price[1])
+
+	savings=(100.0-((100.0*low_price[0])/avg_price))
+	if savings > 0.0:
+		print make
+		print 'Average Market Price: ' + str(avg_price)
+		print 'Lowest Price: ' + str(low_price[0]) + ' at ' + str(low_price[1])
+		print '% savings: ' + str("%.2f" % savings) + '%'
