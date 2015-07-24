@@ -22,7 +22,7 @@ for block in block_array:
 	listings.append(findVehicleandPrice(block))
 
 stats_dict = defaultdict(list)
-for listing in listings: #listing contains (make+model, price, link)
+for listing in listings: #listing contains (year+make+model, price, link)
 	if listing[0] != ' ':
 		stats_dict[listing[0]].append( (listing[1], listing[2]) )
 

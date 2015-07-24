@@ -16,12 +16,12 @@ def getHTMLblocks(text, starttag, endtag):
 #given block of html
 #return link for that page
 def getLink(HTML_block):
-	indentifyer = 'href="'
-	startindex = HTML_block.rfind(indentifyer)
+	indentifier = 'href="'
+	startindex = HTML_block.rfind(indentifier)
 	if startindex == -1:
 		return '-1'
 	endindex = HTML_block.find('"', startindex+22)
-	return HTML_block[startindex+len(indentifyer):endindex]
+	return HTML_block[startindex+len(indentifier):endindex]
 
 
 from fuzzywuzzy import fuzz
@@ -31,10 +31,10 @@ from fuzzywuzzy import process
 def findVehicleandPrice(text):
 	manu_list = []
 	manufacturers = open('manufacturers.txt')	
-	manu_list = [line.rstrip('\n') for line in manufacturers]
+	manu_list = [line.rstrip('\n') for line in manufacturers] #load all possible manufacturers into list
 	manufacturers.close()
 
-	foundmake = 0
+	foundmake = 0 #is the make found in the manu_list?
 	year = ''
 	make = ''
 	model = ''
@@ -54,8 +54,8 @@ def findVehicleandPrice(text):
 	if foundmake:
 		year = prevword.replace('class="hdrlnk">', '')
 
-	#vehicle = year + ' ' + make.lower() + " " + model.lower()
-	vehicle = make.lower() + " " + model.lower()
+	vehicle = year + ' ' + make.lower() + " " + model.lower()
+	#vehicle = make.lower() + " " + model.lower()
 	priceindex = text.rfind('<span class="price">&#x0024;') + 28
 	if priceindex:
 		price = text[priceindex:text.find('<', priceindex, priceindex+7)]

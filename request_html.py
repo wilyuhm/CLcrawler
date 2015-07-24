@@ -5,10 +5,12 @@ import time
 
 start = time.clock()
 
-URL = 'http://inlandempire.craigslist.org/search/cto'
+URL = 'http://inlandempire.craigslist.org/search/cto?s='
 FILENAME = 'html.txt'
+NUMRESULTS = 100
 
-r = requests.get(URL)
+r = requests.get(URL+str(NUMRESULTS-100))
+
 f = open(FILENAME, 'w')
 f.write(r.text.encode('utf-8'))
 f.close()
