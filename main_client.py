@@ -47,4 +47,4 @@ for make, tups in stats_dict.items(): #tups contains list of tuples of (price, l
 		print make
 		print 'Average Market Price: ' + str(avg_price)
 		print 'Lowest Price: ' + str(low_price[0]) + ' at ' + str(low_price[1])
-		print '% savings: ' + str("%.2f" % savings) + '%'
+		print '% savings: ' + str("%.2f" % savings) + '%\n'
