@@ -46,5 +46,5 @@ for make, tups in stats_dict.items(): #tups contains list of tuples of (price, l
 	if savings > 0.0:
 		print make
 		print 'Average Market Price: ' + str(avg_price)
-		print 'Lowest Price: ' + str(low_price[0]) + ' at ' + str(low_price[1])
+		print 'Lowest Price: ' + str(low_price[0]) + ' at ' + 'http://inlandempire.craigslist.org' + str(low_price[1])
 		print '% savings: ' + str("%.2f" % savings) + '%\n'
