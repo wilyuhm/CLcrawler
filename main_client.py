@@ -30,6 +30,7 @@ for listing in listings: #listing contains (year+make+model, price, link)
 		stats_dict[listing[0]].append( (listing[1], listing[2]) )
 
 #calculate average
+filtered_dict = defaultdict(list)
 for make, tups in stats_dict.items(): #tups contains list of tuples of (price, link) for particular type
 	low_price=(tups[0][0], tups[0][1]) #lowest price for particular year, make, model
 	avg_price=0
@@ -44,7 +45,10 @@ for make, tups in stats_dict.items(): #tups contains list of tuples of (price, l
 
 	savings=(100.0-((100.0*low_price[0])/avg_price))
 	if savings > 0.0:
-		print make
-		print 'Average Market Price: ' + str(avg_price)
-		print 'Lowest Price: ' + str(low_price[0]) + ' at ' + 'http://inlandempire.craigslist.org' + str(low_price[1])
-		print '% savings: ' + str("%.2f" % savings) + '%\n'
+		filtered_dict[make]=[make, avg_price,low_price[0],"%.2f" % savings]
+		
+filtered_dict = sorted(filtered_dict.iteritems(), key=lambda(k, v): v[0], reverse=False)
+#filtered_dict = sorted(filtered_dict.iteritems(), key=lambda(k, v): v[3], reverse=True) #sort by savings
+for item in filtered_dict:
+	print item
+
