@@ -1,0 +1,73 @@
+acura
+alfa romeo
+ariel
+aston martin
+audi
+bentley
+bmw : bmw, beemer
+bugatti
+buick
+cadillac
+chevrolet : chevrolet, chevy
+citroen
+chrysler
+dodge
+ferrari
+fiat
+fisker
+ford
+gmc : gmc, general motors
+honda
+isuzu
+infinity
+jaguar
+jeep
+koenigsegg
+kia
+ktm
+lincoln
+lamborghini
+land rover
+lexus
+lister
+lotus
+maserati
+mazda
+mclaren
+mercedes-benz : mercedes-benz, mercedes, mercedes benz, benz
+mini
+mitsubishi
+nissan
+opel
+pagani
+peugeot
+pontiac
+porsche
+renault
+rolls-royce : rolls-royce, rolls royce
+saab
+shelby
+subaru
+suzuki
+tesla
+toyota
+volkswagen : volkswagen, vw
+volvo
+
+husqvarna
+harley-davidson : harley, harley davidson
+piaggio
+royal enfield : royal enfield, enfield
+triumph
+aprilia
+kawasaki
+yamaha
+ducati
+moto guzzi
+buell
+indian
+motus
+victory
+zero electric : zero electric, zero
+ariel
+

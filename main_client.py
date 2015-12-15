@@ -3,6 +3,7 @@
 #UDP socket
 #ask user for page adress and `pull HTML webpage for parsing
 
+import time
 import sys
 sys.dont_write_bytecode=True
 from collections import defaultdict
@@ -10,6 +11,8 @@ from CL_utils import getHTMLblocks
 from CL_utils import getLink
 from CL_utils import findVehicleandPrice
 
+
+start = time.time()
 
 HTMLfile = open('html.txt', 'r') #contains the html requests by FILENAME in request_html.txt
 s = HTMLfile.read()
@@ -52,3 +55,5 @@ filtered_dict = sorted(filtered_dict.iteritems(), key=lambda(k, v): v[0], revers
 for item in filtered_dict:
 	print item
 
+end = time.time()
+print 'time: ' + str(end-start)

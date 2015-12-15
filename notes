@@ -3,7 +3,7 @@
 - json
 - edit distance - solved with fuzzywuzzy
 - human error sucks, posts lack uniformity
-
+- using optimization flag -O apparently does nothing for main_client.py
 - possibly compare to kbb price
 - compute average value
 - incorporate matlab libraries to graph average versus particular sales
