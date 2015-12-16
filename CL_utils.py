@@ -56,7 +56,7 @@ def findVehicleandPrice(text):
 
 	vehicle = year + ' ' + make.lower() + " " + model.lower()
 	#vehicle = make.lower() + " " + model.lower()
-	priceindex = text.rfind('<span class="price">&#x0024;') + 28
+	priceindex = text.rfind('<span class="price">') + 21
 	if priceindex:
 		price = text[priceindex:text.find('<', priceindex, priceindex+7)]
 	if len(price) > 6:
